@@ -25,7 +25,10 @@ createDoctor(mydto):any {
     }
 addMedicine(mydto):any {
     
-        return "Doctor Inserted name: " + mydto.name+" and id is " + mydto.id;
+        return "Medicine Inserted name: " + mydto.name+" and id is " + mydto.id;
+    }
+    updateMedicine(name,id):any {
+        return "Medicine updated name: " +name+" and id is " +id ;
     }
 
 updateDoctor(name,id):any {

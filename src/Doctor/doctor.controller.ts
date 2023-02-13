@@ -5,6 +5,7 @@ import{createdoctordto} from "./createdoctordto.dto";
 import {updatedoctordto} from "./updatedoctordto.dto";
 import{addmedicinedto} from "./addmedicinedto.dto";
 import { delatedoctordto} from "./delatedoctordto.dto";
+import{updatemedicine} from "./updatemedicinedto.dto"
 
 
 @Controller("/doctor")
@@ -15,6 +16,8 @@ export class DoctorController
   @Get("/index")
     getDoctor(): any { 
         return this.doctorService.getIndex();
+
+        
     }
     @Get("/find/:id")
     getDoctorID(@Param("id", ParseIntPipe) id:number,): any {
@@ -38,7 +41,15 @@ export class DoctorController
     addMedicine(@Body() mydto:addmedicinedto): any {
       return this.doctorService.addMedicine(mydto);
     }
-  
+  @Put("/updatemedicine")
+  @UsePipes(new ValidationPipe())
+  updateMedicine( 
+    @Body("name") name:string,
+    @Body("id") id:number,
+    mydto:updatemedicine) : any {
+  return this.doctorService.updateMedicine(name, id);
+  }
+
     @Put("/updateDoctor/")
     @UsePipes(new ValidationPipe())
     updateDoctor( 
