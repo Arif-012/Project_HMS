@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany,BaseEntity } from 'typeorm';
 
-@Entity("admin")
-export class AdminEntity{
+@Entity("employee")
+export class EmployeeEntity{
    
     @PrimaryGeneratedColumn()
     id: number;
@@ -13,13 +13,10 @@ export class AdminEntity{
    email: string;
 
   @Column()
-  password: string;
+  phone: string;
 
   @Column()
   address: string;
-
-  @Column()
-  filename:string;
 
 
 
